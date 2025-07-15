@@ -22,7 +22,7 @@ const LEDCalculator = () => {
     const [ledType, setLedType] = useState("RGB");
     const [volts, setVolts] = useState("12");
     const [ppm, setPpm] = useState("60");
-    const [length, setLength] = useState("54");
+    const [length, setLength] = useState("");
     const [unit, setUnit] = useState<"feet" | "meters">("feet");
     const [rollLength, setRollLength] = useState("16.4");
     const [rollUnit, setRollUnit] = useState<"feet" | "meters">("feet");
