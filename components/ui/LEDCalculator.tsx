@@ -22,7 +22,7 @@ const LEDCalculator = () => {
     const [ledType, setLedType] = useState("RGB");
     const [volts, setVolts] = useState("12");
     const [ppm, setPpm] = useState("60");
-    const [length, setLength] = useState("");
+    const [length, setLength] = useState("54");
     const [unit, setUnit] = useState<"feet" | "meters">("feet");
     const [rollLength, setRollLength] = useState("16.4");
     const [rollUnit, setRollUnit] = useState<"feet" | "meters">("feet");
@@ -159,19 +159,28 @@ const LEDCalculator = () => {
                         {universes !== null && (
                             <div><strong>Universes Required:</strong> {universes}</div>
                         )}
-
+                        <div className="md:col-span-2 pt-4">
+                            <a
+                                href={`https://www.amazon.com/s?k=led+${ledType.toLowerCase()}+${volts.toLowerCase()}v`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-600 underline font-medium"
+                            >
+                                Search on Amazon
+                            </a>
+                        </div>
                     </CardContent>
                 </Card>
             </div>
-            <div className="md:col-span-2 pt-4">
-                <a
-                    href={`https://www.amazon.com/s?k=led+${ledType.toLowerCase()}+${volts.toLowerCase()}v`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 underline font-medium"
-                >
-                    Search on Amazon
-                </a>
+            <div className="md:col-span-2 pt-6">
+                <h2 className="font-semibold text-lg mb-2">Resources</h2>
+                <ul className="list-disc list-inside space-y-1 text-sm">
+                    <li><a className="text-blue-600 underline" href="https://wled-calculator.github.io/" target="_blank" rel="noopener noreferrer">WLED Power Calculator</a></li>
+                    <li><a className="text-blue-600 underline" href="http://spikerlights.com/calcpower.aspx" target="_blank" rel="noopener noreferrer">Pixel Voltage Drop Calculator</a></li>
+                    <li><a className="text-blue-600 underline" href="http://spikerlights.com/pwrinjection.aspx" target="_blank" rel="noopener noreferrer">Power Injection Guide</a></li>
+                    <li><a className="text-blue-600 underline" href="https://www.matrixvisual.com/products/#matrix-calculator" target="_blank" rel="noopener noreferrer">LED Wall Calculator</a></li>
+                    <li><a className="text-blue-600 underline" href="https://docs.google.com/spreadsheets/d/1u3M8Y_RZwbbZ7aVYDg-kSx9Cdu8BDvt--jK8gY35mvk/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Pixel Mapping Software Comparisons</a></li>
+                </ul>
             </div>
         </div>
     );
