@@ -22,7 +22,7 @@ const LEDCalculator = () => {
     const [ledType, setLedType] = useState("RGB");
     const [volts, setVolts] = useState("12");
     const [ppm, setPpm] = useState("60");
-    const [length, setLength] = useState("54");
+    const [length, setLength] = useState("");
     const [unit, setUnit] = useState<"feet" | "meters">("feet");
     const [rollLength, setRollLength] = useState("16.4");
     const [rollUnit, setRollUnit] = useState<"feet" | "meters">("feet");
@@ -159,18 +159,19 @@ const LEDCalculator = () => {
                         {universes !== null && (
                             <div><strong>Universes Required:</strong> {universes}</div>
                         )}
-                        <div className="md:col-span-2 pt-4">
-                            <a
-                                href={`https://www.amazon.com/s?k=led+${ledType.toLowerCase()}+${volts.toLowerCase()}v`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 underline font-medium"
-                            >
-                                Search on Amazon
-                            </a>
-                        </div>
+
                     </CardContent>
                 </Card>
+            </div>
+            <div className="md:col-span-2 pt-4">
+                <a
+                    href={`https://www.amazon.com/s?k=led+${ledType.toLowerCase()}+${volts.toLowerCase()}v`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 underline font-medium"
+                >
+                    Search on Amazon
+                </a>
             </div>
         </div>
     );
