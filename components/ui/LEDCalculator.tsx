@@ -22,7 +22,7 @@ const LEDCalculator = () => {
     const [ledType, setLedType] = useState("RGB");
     const [volts, setVolts] = useState("12");
     const [ppm, setPpm] = useState("60");
-    const [length, setLength] = useState("");
+    const [length, setLength] = useState("54");
     const [unit, setUnit] = useState<"feet" | "meters">("feet");
     const [rollLength, setRollLength] = useState("16.4");
     const [rollUnit, setRollUnit] = useState<"feet" | "meters">("feet");
@@ -59,7 +59,7 @@ const LEDCalculator = () => {
     const parsedLength = parseFloat(length) || 0;
     const lengthMeters = unit === "feet" ? parsedLength / 3.28084 : parsedLength;
     const ppmVal = parseFloat(ppm) || 0;
-    const totalPixels = isAnalog ? 0 : Math.round(lengthMeters * ppmVal);
+    const totalPixels = isAnalog ? Math.round(lengthMeters * ppmVal) : Math.round(lengthMeters * ppmVal);
     const totalRollsRaw = parsedLength / (rollUnit === "feet" ? parseFloat(rollLength) : parseFloat(rollLength) * 3.28084);
     const totalRolls = Math.ceil(totalRollsRaw);
     const pricePerRoll = parseFloat(costPerRoll) || 0;
@@ -172,6 +172,7 @@ const LEDCalculator = () => {
                     </CardContent>
                 </Card>
             </div>
+
             <div className="md:col-span-2 pt-6">
                 <h2 className="font-semibold text-lg mb-2">Resources</h2>
                 <ul className="list-disc list-inside space-y-1 text-sm">
